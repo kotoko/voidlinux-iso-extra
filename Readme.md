@@ -6,7 +6,8 @@ This repo contains instruction for building it yourself and link to generated IS
 
 ## Download ISO
 
-* TODO
+* [https://github.com/kotoko/voidlinux-iso-extra/releases/download/2020-07-02/void-live-x86_64-5.4.49_1-20200702.iso](https://github.com/kotoko/voidlinux-iso-extra/releases/download/2020-07-02/void-live-x86_64-5.4.49_1-20200702.iso)
+* [https://www.dropbox.com/s/uspcf1rijxbhyre/void-live-x86_64-5.4.49_1-20200702.iso?dl=1](https://www.dropbox.com/s/uspcf1rijxbhyre/void-live-x86_64-5.4.49_1-20200702.iso?dl=1)
 
 ## Regenerating ISO
 
