@@ -11,7 +11,7 @@ This repo contains instruction for building it yourself and link to ISO generate
 * ISO [void-live-x86_64-5.4.51_1-20200713.iso](https://github.com/kotoko/voidlinux-iso-extra/releases/download/2020-07-13/void-live-x86_64-5.4.51_1-20200713.iso)
 * ISO [void-live-x86_64-5.4.51_1-20200713.iso](https://www.dropbox.com/s/6xt3cll4ynstfcy/void-live-x86_64-5.4.51_1-20200713.iso?dl=1)
 
-## Regenerating ISO
+## Regenerate ISO
 
 Internet is required for your system and also for Void inside VirtualBox.
 
@@ -19,7 +19,7 @@ Internet is required for your system and also for Void inside VirtualBox.
 2. Download latest minimal ISO for x86_64 from official website [https://alpha.de.repo.voidlinux.org/live/current/](https://alpha.de.repo.voidlinux.org/live/current/) (e.g. `void-live-x86_64-20191109.iso`).
 3. Add new system to VirtualBox.
     * Create 4GB virtual disk hard drive.
-    * Add more RAM (2-4 GB should be OK).
+    * Add more RAM (1-2 GB should be OK).
     * Add more CPU (2 is already better)
 4. Install Voidlinux in virtualbox.
     * Run Voidlinux from RAM (will be faster).
