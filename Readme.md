@@ -6,7 +6,7 @@ This repo contains instruction for building it yourself and link to ISO generate
 
 ## Download ISO
 
-2021-02-26:
+2021-10-20:
 * checksum [void-live-x86_64-5.13.19_1-20211020.iso.checksum](https://raw.githubusercontent.com/kotoko/voidlinux-iso-extra/master/void-live-x86_64-5.13.19_1-20211020.iso.checksum)
 * ISO [void-live-x86_64-5.13.19_1-20211020.iso](https://github.com/kotoko/voidlinux-iso-extra/releases/download/2021-10-20/void-live-x86_64-5.13.19_1-20211020.iso)
 * ISO [void-live-x86_64-5.13.19_1-20211020.iso](https://www.dropbox.com/s/5o7rf21rtqufqe4/void-live-x86_64-5.13.19_1-20211020.iso?dl=1)
