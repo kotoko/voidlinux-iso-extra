@@ -18,7 +18,7 @@ Internet is required for your system and also for Void inside VirtualBox.
 1. Install VirtualBox.
 2. Download latest minimal ISO for x86_64 from official website [https://alpha.de.repo.voidlinux.org/live/current/](https://alpha.de.repo.voidlinux.org/live/current/) (e.g. `void-live-x86_64-20191109.iso`).
 3. Add new system to VirtualBox.
-    * Create 6GB virtual disk hard drive.
+    * Create 6 GB virtual disk hard drive.
     * Add more RAM (1-2 GB should be OK).
     * Add more CPU (2 is already better)
 4. Install Voidlinux in virtualbox.
