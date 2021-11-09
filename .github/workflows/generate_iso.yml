@@ -1,0 +1,29 @@
+# This is draft for Github Actions.
+# Last time I checked this yaml script
+# was bugged.
+#
+
+on: [push]
+jobs:
+  gen_iso:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/void-linux/void-linux:latest-full-x86_64
+      options: --privileged
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+      - name: Install dependencies
+        run: yes y | xbps-install -S gcc bash liblz4 lzo kmod
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Generate ISO
+        run: |
+          chmod +x ./gen.sh
+          ./gen.sh
+      - name: Upload ISO
+        uses: actions/upload-artifact@v2
+        with:
+           name: void-live-x86_64-${{ steps.date.outputs.date }}-${{ github.sha }}.iso
+           path: /root/void-mklive/void-live-x86_64-*.iso
