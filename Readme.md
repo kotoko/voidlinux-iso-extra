@@ -54,7 +54,7 @@ Done!
 
 (You can modify workflow to trigger build, e.g., every month. [See Github Actions documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onschedule).)
 
-## Customizing ISO
+## Customize ISO
 
 If you want to add more programs/packages to ISO then append names to variable `PKGS` in file `gen.sh`. Regenerate ISO. You can check available packages on [void's website](https://voidlinux.org/packages/?arch=x86_64).
 
