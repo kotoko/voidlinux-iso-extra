@@ -1,0 +1,32 @@
+# This does not work because Gitlab CI assumes that
+# bash is installed and/or is set as default shell.
+# Unfortunately docker image does not contain bash
+# (contains dash) so job always fails.
+#
+# Possible solutions:
+# a) wait until programmers fix Gitlab CI runner (<- my pick)
+# b) create custom docker image with bash
+#
+# Read also:
+#   https://forum.gitlab.com/t/custom-docker-image-fails-with-illegal-option-pipefail-in-the-gitlab-script/31359
+
+
+image: ghcr.io/void-linux/void-linux:latest-full-x86_64
+
+stages:
+  - build
+
+before_script:
+  - export MY_DATE=$(date +'%Y.%m.%d')
+
+gen_iso:
+  stage: build
+  script:
+    - chmod +x ./ci/install_dependencies.sh
+    - ./ci/install_dependencies.sh
+    - chmod +x ./gen.sh
+    - ./gen.sh
+  artifacts:
+    name: "void-live-x86_64-$MY_DATE-$CI_COMMIT_SHA.iso"
+    paths:
+      - /root/void-mklive/void-live-x86_64-*.iso
