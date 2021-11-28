@@ -16,11 +16,10 @@ image: ghcr.io/void-linux/void-linux:latest-full-x86_64
 stages:
   - build
 
-before_script:
-  - export MY_DATE=$(date +'%Y.%m.%d')
-
 gen_iso:
   stage: build
+  before_script:
+    - export MY_DATE=$(date +'%Y.%m.%d')
   script:
     - chmod +x ./ci/install_dependencies.sh
     - ./ci/install_dependencies.sh
