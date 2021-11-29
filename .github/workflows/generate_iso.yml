@@ -10,7 +10,7 @@ jobs:
         id: date
         run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
       - name: Install dependencies for actions/checkout@v2
-        run: yes y | xbps-install -S gcc
+        run: xbps-install --yes -S gcc
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Install dependencies
