@@ -5,6 +5,9 @@ jobs:
     container:
       image: ghcr.io/void-linux/void-linux:latest-full-x86_64
       options: --privileged
+    defaults:
+      run:
+        shell: sh
     steps:
       - name: Get current date
         id: date
