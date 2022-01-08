@@ -16,4 +16,7 @@ cd '/root'
 cd 'void-mklive/'
 make clean
 make
+
+# List of repository mirrors:
+#   https://docs.voidlinux.org/xbps/repositories/mirrors/
 ./mklive.sh -a 'x86_64' -r 'https://mirrors.dotsrc.org/voidlinux/current' -p "${BASE_PKGS} ${PKGS}"
