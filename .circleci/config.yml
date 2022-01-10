@@ -23,10 +23,10 @@ jobs:
               /root/project/ci/install_dependencies.sh && \
               chmod +x /root/project/gen.sh && \
               /root/project/gen.sh && \
-              bash -c 'mv -v /root/void-mklive/void-live-x86_64-*.iso /root/project/void-live-x86_64.iso' \
+              sh -c 'mv -v /root/void-mklive/void-live-x86_64-*.iso /root/project/void-live-x86_64-<< pipeline.git.revision >>.iso' \
             "
       - store_artifacts:
-          path: ./void-live-x86_64.iso
+          path: ./void-live-x86_64-<< pipeline.git.revision >>.iso
 
 workflows:
   generate_iso:
