@@ -1,0 +1,70 @@
+version: 2.1
+jobs:
+  # Job 'gen_iso' is the same as job 'gen_iso_missing_privileged_flag'
+  # but manually running docker with --privileged flag.
+  gen_iso:
+    machine:
+      image: ubuntu-2004:202111-01
+    resource_class: medium
+    steps:
+      - checkout
+      - run:
+          name: Download docker image
+          shell: /bin/sh
+          command: |
+            docker pull ghcr.io/void-linux/void-linux:latest-full-x86_64
+      - run:
+          name: Generate ISO
+          shell: /bin/sh
+          command: |
+            docker run --privileged -v $PWD:/root/project -v /dev:/dev -it ghcr.io/void-linux/void-linux:latest-full-x86_64 /bin/sh -c "\
+              chmod +x /root/project/ci/set_repository.sh && \
+              /root/project/ci/set_repository.sh && \
+              chmod +x /root/project/ci/install_dependencies.sh && \
+              /root/project/ci/install_dependencies.sh && \
+              chmod +x /root/project/gen.sh && \
+              /root/project/gen.sh && \
+              bash -c 'mv -v /root/void-mklive/void-live-x86_64-*.iso /root/project/void-live-x86_64.iso' \
+            "
+      - store_artifacts:
+          path: ./void-live-x86_64.iso
+
+#  # Job 'gen_iso_missing_privileged_flag' does not work
+#  # because circleci does not support running docker image
+#  # with --privileged flag.
+#  gen_iso_missing_privileged_flag:
+#    docker:
+#      - image: ghcr.io/void-linux/void-linux:latest-full-x86_64
+#    resource_class: medium
+#    steps:
+#      - checkout
+#      - run:
+#          name: Set repository for xbps
+#          shell: /bin/sh
+#          command: |
+#            chmod +x ./ci/set_repository.sh
+#            ./ci/set_repository.sh
+#      - run:
+#          name: Install dependencies
+#          shell: /bin/sh
+#          command: |
+#            chmod +x ./ci/install_dependencies.sh
+#            ./ci/install_dependencies.sh
+#      - run:
+#          name: Generate ISO
+#          shell: /bin/sh
+#          command: |
+#            chmod +x ./gen.sh
+#            ./gen.sh
+#      - run:
+#          name: Rename ISO
+#          shell: /bin/sh
+#          command: |
+#            bash -c 'mv -v /root/void-mklive/void-live-x86_64-*.iso /root/project/void-live-x86_64.iso'
+#      - store_artifacts:
+#          path: ./void-live-x86_64.iso
+
+workflows:
+  generate_iso:
+    jobs:
+      - gen_iso
