@@ -8,11 +8,15 @@ PKGS='bzip2 cryptsetup curl ddrescue gnupg2 git gptfdisk gzip efibootmgr lvm2 ma
 # Source: https://github.com/void-linux/void-mklive/blob/master/build-x86-images.sh.in
 BASE_PKGS='dialog cryptsetup lvm2 mdadm void-docs-browse grub-i386-efi grub-x86_64-efi'
 
-# List of mirrors: https://docs.voidlinux.org/xbps/repositories/mirrors/
+# List of mirrors (see also: ci/set_repository.sh):
+#   https://docs.voidlinux.org/xbps/repositories/mirrors/
 REPO='https://mirrors.dotsrc.org/voidlinux/current'
 
-mkdir -p /etc/xbps.d
-echo "repository=${REPO}" >> /etc/xbps.d/repo.conf
+# Set repository
+rm -fr /etc/xbps.d
+mkdir -p -m 755 /etc/xbps.d
+echo "repository=${REPO}" > /etc/xbps.d/repo.conf
+
 xbps-install --yes -Su xbps
 xbps-install --yes -Su
 xbps-install --yes -S git make

@@ -21,6 +21,8 @@ gen_iso:
   before_script:
     - export MY_DATE=$(date +'%Y.%m.%d')
   script:
+    - chmod +x ./ci/set_repository.sh
+    - ./ci/set_repository.sh
     - chmod +x ./ci/install_dependencies.sh
     - ./ci/install_dependencies.sh
     - chmod +x ./gen.sh
