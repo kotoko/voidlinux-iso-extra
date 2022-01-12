@@ -56,7 +56,7 @@ Done!
 
 ## Continuous Integration
 
-In repo there are configurations for generating ISO using:
+In repo are configurations for generating ISO using:
 
 * Github Actions
 * Gitlab CI (currently broken)
