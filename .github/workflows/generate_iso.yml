@@ -12,14 +12,16 @@ jobs:
       - name: Get current date
         id: date
         run: echo "::set-output name=date::$(date +'%Y.%m.%d')"
+      - name: Install dependencies for actions/checkout@v2
+        run: |
+          xbps-install --yes -Su xbps
+          xbps-install --yes -S gcc
+      - name: Checkout repository
+        uses: actions/checkout@v2
       - name: Set repository for xbps
         run: |
           chmod +x ./ci/set_repository.sh
           ./ci/set_repository.sh
-      - name: Install dependencies for actions/checkout@v2
-        run: xbps-install --yes -S gcc
-      - name: Checkout repository
-        uses: actions/checkout@v2
       - name: Install dependencies
         run: |
           chmod +x ./ci/install_dependencies.sh
