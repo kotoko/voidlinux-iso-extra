@@ -59,7 +59,7 @@ Done!
 In repo are configurations for generating ISO using:
 
 * Github Actions
-* Gitlab CI (currently broken)
+* Gitlab CI
 * CircleCI
 
 I tested configurations after creating them so they should work. It is also possible that with passing of time there were changes in CI and they stopped working.
