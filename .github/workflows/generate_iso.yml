@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies for actions/checkout@v2
         run: |
           xbps-install --yes -Su xbps
-          xbps-install --yes -S gcc
+          xbps-install --yes -S libstdc++
       - name: Checkout repository
         uses: actions/checkout@v2
       - name: Set repository for xbps
