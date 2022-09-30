@@ -1,12 +1,14 @@
 #!/bin/bash
 set -euo pipefail
 
-# Additional packages in the ISO
-PKGS='bzip2 cryptsetup curl ddrescue gnupg2 git gptfdisk gzip efibootmgr lvm2 makepasswd mdadm mosh nano p7zip rsync wget vim unzip xz zip'
+# Additional packages and services in the ISO
+PKGS='bzip2 cryptsetup curl ddrescue gnupg2 git gptfdisk gzip efibootmgr lvm2 lz4 makepasswd mdadm mosh nano p7zip rsync wget vim unzip xz zip zstd'
+SERVICES=''
 
-# Base packages required for livecd
+# Base packages and services required for livecd
 # Source: https://github.com/void-linux/void-mklive/blob/master/build-x86-images.sh.in
-BASE_PKGS='dialog cryptsetup lvm2 mdadm void-docs-browse grub-i386-efi grub-x86_64-efi'
+BASE_PKGS='dialog cryptsetup lvm2 mdadm void-docs-browse grub-i386-efi grub-x86_64-efi xtools-minimal'
+BASE_SERVICES="sshd dhcpcd acpid"
 
 # List of mirrors (see also: ci/set_repository.sh):
 #   https://docs.voidlinux.org/xbps/repositories/mirrors/
@@ -25,4 +27,4 @@ cd '/root'
 cd 'void-mklive/'
 make clean
 make
-./mklive.sh -a 'x86_64' -r "${REPO}" -p "${BASE_PKGS} ${PKGS}"
+./mklive.sh -a 'x86_64' -r "${REPO}" -p "${BASE_PKGS} ${PKGS}" -S "${BASE_SERVICES} ${SERVICES}"
