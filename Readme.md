@@ -6,21 +6,21 @@ This repo contains instruction for building it yourself and link to ISO generate
 
 ## Download ISO
 
-2022-07-03:
-* checksum [void-live-x86_64-5.15.52_1-20220703.iso.checksum](https://raw.githubusercontent.com/kotoko/voidlinux-iso-extra/2022-07-03/void-live-x86_64-5.15.52_1-20220703.iso.checksum)
-* ISO [void-live-x86_64-5.15.52_1-20220703.iso](https://github.com/kotoko/voidlinux-iso-extra/releases/download/2022-07-03/void-live-x86_64-5.15.52_1-20220703.iso)
-* ISO [void-live-x86_64-5.15.52_1-20220703.iso](https://www.dropbox.com/s/a5i1na1yp8tv7ft/void-live-x86_64-5.15.52_1-20220703.iso?dl=1)
+2022-10-31:
+* checksum [void-live-x86_64-5.19.16_1-20221031.iso.checksum](https://raw.githubusercontent.com/kotoko/voidlinux-iso-extra/2022-10-31/void-live-x86_64-5.19.16_1-20221031.iso.checksum)
+* ISO [void-live-x86_64-5.19.16_1-20221031.iso](https://github.com/kotoko/voidlinux-iso-extra/releases/download/2022-10-31/void-live-x86_64-5.19.16_1-20221031.iso)
+* ISO [void-live-x86_64-5.19.16_1-20221031.iso](https://www.dropbox.com/s/mxusctuvqsxdmvo/void-live-x86_64-5.19.16_1-20221031.iso?dl=1)
 
 ## Regenerate ISO
 
 Internet is required for your system and also for Void inside VirtualBox.
 
 1. Install VirtualBox.
-2. Download latest minimal ISO for x86_64 from official website [https://alpha.de.repo.voidlinux.org/live/current/](https://alpha.de.repo.voidlinux.org/live/current/) (e.g. `void-live-x86_64-20191109.iso`).
+2. Download latest minimal ISO for x86_64 from official website [https://alpha.de.repo.voidlinux.org/live/current/](https://alpha.de.repo.voidlinux.org/live/current/) (e.g. `void-live-x86_64-20221001-base.iso`).
 3. Add new system to VirtualBox.
     * Create 6 GB virtual disk hard drive.
-    * Add more RAM (1-2 GB should be OK).
-    * Add more CPU (2 is already better)
+    * Add more RAM (2 GB should be OK).
+    * Add more CPU (2 is already better).
 4. Install Voidlinux in virtualbox.
     * Run Voidlinux from RAM (will be faster).
     * Login as root.
@@ -31,7 +31,7 @@ Internet is required for your system and also for Void inside VirtualBox.
 5. Login as root.
 6. Copy gen.sh into any ssh server.
 7. Use scp to download gen.sh into /root/ in Voidlinux inside virtualbox. (E.g. `scp me@myserver:gen.sh /root`)
-8. Run script: `bash /root/gen.sh`
+8. Run script: `bash /root/gen.sh`.
 9. New ISO will be in folder /root/void-mklive/. Use scp to copy it outside VirtualBox.
 
 Done!
