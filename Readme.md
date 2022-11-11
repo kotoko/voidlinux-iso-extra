@@ -11,7 +11,41 @@ This repo contains instruction for building it yourself and link to ISO generate
 * ISO [void-live-x86_64-5.19.16_1-20221031.iso](https://github.com/kotoko/voidlinux-iso-extra/releases/download/2022-10-31/void-live-x86_64-5.19.16_1-20221031.iso)
 * ISO [void-live-x86_64-5.19.16_1-20221031.iso](https://www.dropbox.com/s/mxusctuvqsxdmvo/void-live-x86_64-5.19.16_1-20221031.iso?dl=1)
 
-## Regenerate ISO
+## Regenerate ISO using Github Actions
+
+I don't use GA for this project. However it could be useful for other people so I added text file with workflow that generates ISO triggered by commit push.
+
+Steps:
+
+1. Fork this repository.
+2. Enable Github Actions in github settings for your forked repository.
+3. Modify file(s) and push commit to github. You have two options:
+    * It is possible that you want add more programs to the ISO. In that case edit file `gen.sh` and append programs/packages to variable `PKGS`. Create git commit and push it to github.
+    * If you do not want change list of programs then create empty file with arbitrary name. Create git commit and push it to github. Build is triggered by new git commit so you have to change something in repository.
+4. Wait for build to complete (around 8 minutes last time I checked).
+5. Download artifact (ISO file) from github.
+
+Done!
+
+(You can modify workflow to trigger build, e.g., every month. [See Github Actions documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onschedule).)
+
+## Regenerate ISO using Docker
+
+Internet is required for your system. I am assuming you already have installed and configured docker. I tested script `gen_using_docker.sh` on linux machine.
+
+Open terminal and run:
+
+```
+git clone 'https://github.com/kotoko/voidlinux-iso-extra.git' voidlinux-iso-extra/
+cd voidlinux-iso-extra/
+bash gen_using_docker.sh
+```
+
+Generated image will be in directory `out/`.
+
+Done!
+
+## Regenerate ISO using VirtualBox
 
 Internet is required for your system and also for Void inside VirtualBox.
 
@@ -35,24 +69,6 @@ Internet is required for your system and also for Void inside VirtualBox.
 9. New ISO will be in folder /root/void-mklive/. Use scp to copy it outside VirtualBox.
 
 Done!
-
-## Regenerate ISO using Github Actions
-
-I don't use GA for this project and generate ISOs by hand (method above). However it could be useful for other people so I added text file with workflow that generates ISO triggered by commit push.
-
-Steps:
-
-1. Fork this repository.
-2. Enable Github Actions in github settings for your forked repository.
-3. Modify file(s) and push commit to github. You have two options:
-    * It is possible that you want add more programs to the ISO. In that case edit file `gen.sh` and append programs/packages to variable `PKGS`. Create git commit and push it to github.
-    * If you do not want change list of programs then create empty file with arbitrary name. Create git commit and push it to github. Build is triggered by new git commit so you have to change something in repository.
-4. Wait for build to complete (around 8 minutes last time I checked).
-5. Download artifact (ISO file) from github.
-
-Done!
-
-(You can modify workflow to trigger build, e.g., every month. [See Github Actions documentation](https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions#onschedule).)
 
 ## Continuous Integration
 
