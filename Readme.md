@@ -33,7 +33,7 @@ Done!
 
 Internet is required for your system. I am assuming you already have installed and configured docker. I tested script `gen_using_docker.sh` on linux machine.
 
-Open terminal and run:
+Open terminal and run as normal user:
 
 ```
 git clone 'https://github.com/kotoko/voidlinux-iso-extra.git' voidlinux-iso-extra/
@@ -41,7 +41,7 @@ cd voidlinux-iso-extra/
 bash gen_using_docker.sh
 ```
 
-Generated image will be in directory `out/`.
+New ISO will be in folder out/.
 
 Done!
 

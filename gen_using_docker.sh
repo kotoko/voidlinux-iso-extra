@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-# https://stackoverflow.com/a/246128
-PROJECT="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+PROJECT="$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"  # https://stackoverflow.com/a/246128
 U="$(id -u)"
 G="$(id -g)"
 
@@ -23,6 +22,8 @@ docker run \
         chown -R '${U}:${G}' /root/project/out/ \
     "
 docker image rm 'ghcr.io/void-linux/void-linux:latest-full-x86_64' || true
+
+set +x
 
 echo
 echo "Success! Image is in directory:"
