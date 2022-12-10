@@ -8,7 +8,7 @@ SERVICES=''
 # Base packages and services required for livecd
 # Source: https://github.com/void-linux/void-mklive/blob/master/build-x86-images.sh.in
 BASE_PKGS='dialog cryptsetup lvm2 mdadm void-docs-browse grub-i386-efi grub-x86_64-efi xtools-minimal'
-BASE_SERVICES="sshd dhcpcd acpid"
+BASE_SERVICES="sshd dhcpcd acpid wpa_supplicant"
 
 # List of mirrors (see also: ci/set_repository.sh):
 #   https://docs.voidlinux.org/xbps/repositories/mirrors/
