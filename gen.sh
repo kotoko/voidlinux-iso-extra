@@ -12,12 +12,13 @@ BASE_SERVICES="sshd dhcpcd acpid"
 
 # List of mirrors (see also: ci/set_repository.sh):
 #   https://docs.voidlinux.org/xbps/repositories/mirrors/
-REPO='https://mirrors.dotsrc.org/voidlinux/current'
+REPO='https://mirrors.dotsrc.org/voidlinux'
 
 # Set repository
 rm -fr /etc/xbps.d
 mkdir -p -m 755 /etc/xbps.d
-echo "repository=${REPO}" > /etc/xbps.d/repo.conf
+echo "repository=${REPO}/current" > /etc/xbps.d/repo-main.conf
+echo "repository=${REPO}/current/nonfree" > /etc/xbps.d/repo-nonfree.conf
 
 xbps-install --yes -Su xbps
 xbps-install --yes -Su
