@@ -1,6 +1,6 @@
 #!/bin/sh
 
-REPO='https://mirrors.dotsrc.org/voidlinux'
+REPO='https://repo-fastly.voidlinux.org'
 
 # Set repository for xbps
 rm -fr /etc/xbps.d

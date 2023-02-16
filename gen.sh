@@ -12,7 +12,7 @@ BASE_SERVICES="sshd dhcpcd acpid wpa_supplicant"
 
 # List of mirrors (see also: ci/set_repository.sh):
 #   https://docs.voidlinux.org/xbps/repositories/mirrors/
-REPO='https://mirrors.dotsrc.org/voidlinux'
+REPO='https://repo-fastly.voidlinux.org'
 
 # Set repository
 rm -fr /etc/xbps.d
