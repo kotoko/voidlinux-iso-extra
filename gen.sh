@@ -26,6 +26,5 @@ xbps-install --yes -S git make
 cd '/root'
 [ ! -d 'void-mklive' ] && git clone -b master --single-branch --depth 1 'https://github.com/void-linux/void-mklive.git' 'void-mklive'
 cd 'void-mklive/'
-make clean
 make
 ./mklive.sh -a 'x86_64' -r "${REPO}" -p "${BASE_PKGS} ${PKGS}" -S "${BASE_SERVICES} ${SERVICES}"
