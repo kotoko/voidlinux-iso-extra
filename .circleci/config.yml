@@ -11,12 +11,12 @@ jobs:
           name: Download docker image
           shell: /bin/sh
           command: |
-            docker pull ghcr.io/void-linux/void-linux:latest-full-x86_64
+            docker pull ghcr.io/void-linux/void-glibc-full:latest
       - run:
           name: Generate ISO
           shell: /bin/sh
           command: |
-            docker run --privileged -v $PWD:/root/project -v /dev:/dev -it ghcr.io/void-linux/void-linux:latest-full-x86_64 /bin/sh -c "\
+            docker run --privileged -v $PWD:/root/project -v /dev:/dev -it ghcr.io/void-linux/void-glibc-full:latest /bin/sh -c "\
               chmod +x /root/project/ci/set_repository.sh && \
               /root/project/ci/set_repository.sh && \
               chmod +x /root/project/ci/install_dependencies.sh && \

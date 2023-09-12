@@ -13,7 +13,7 @@ docker run \
     -v "${PROJECT}:/root/project" \
     --interactive \
     --tty \
-    'ghcr.io/void-linux/void-linux:latest-full-x86_64' \
+    'ghcr.io/void-linux/void-glibc-full:latest' \
     /bin/sh -c "\
         chmod +x /root/project/ci/set_repository.sh && /root/project/ci/set_repository.sh && \
         chmod +x /root/project/ci/install_dependencies.sh && /root/project/ci/install_dependencies.sh && \

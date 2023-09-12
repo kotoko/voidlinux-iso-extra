@@ -3,7 +3,7 @@ stages:
 
 gen_iso:
   stage: build
-  image: ghcr.io/void-linux/void-linux:latest-full-x86_64
+  image: ghcr.io/void-linux/void-glibc-full:latest
   tags:
     - linux
     - amd64
