@@ -21,7 +21,7 @@ docker run \
         sh -c 'mv -vf /root/void-mklive/void-live-x86_64-*.iso /root/project/out/' && \
         chown -R '${U}:${G}' /root/project/out/ \
     "
-docker image rm 'ghcr.io/void-linux/void-linux:latest-full-x86_64' || true
+docker image rm 'ghcr.io/void-linux/void-glibc-full:latest' || true
 
 set +x
 
