@@ -7,7 +7,7 @@ SERVICES=''
 
 # Base packages and services required for livecd
 # Source: https://github.com/void-linux/void-mklive/blob/master/build-x86-images.sh.in
-BASE_PKGS='dialog cryptsetup lvm2 mdadm void-docs-browse grub-i386-efi grub-x86_64-efi xtools-minimal'
+BASE_PKGS='dialog cryptsetup lvm2 mdadm void-docs-browse grub-i386-efi grub-x86_64-efi xtools-minimal xmirror'
 BASE_SERVICES="sshd dhcpcd acpid wpa_supplicant"
 
 # List of mirrors (see also: ci/set_repository.sh):
@@ -26,5 +26,7 @@ xbps-install --yes -S git make
 cd '/root'
 [ ! -d 'void-mklive' ] && git clone -b master --single-branch --depth 1 'https://github.com/void-linux/void-mklive.git' 'void-mklive'
 cd 'void-mklive/'
+INCLUDEDIR=$(mktemp -d)
+install -Dm755 installer.sh "$INCLUDEDIR"/usr/bin/void-installer
 make
-./mklive.sh -a 'x86_64' -r "${REPO}" -p "${BASE_PKGS} ${PKGS}" -S "${BASE_SERVICES} ${SERVICES}"
+./mklive.sh -a 'x86_64' -r "${REPO}" -p "${BASE_PKGS} ${PKGS}" -S "${BASE_SERVICES} ${SERVICES}" -I "${INCLUDEDIR}"
